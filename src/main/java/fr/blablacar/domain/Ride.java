@@ -1,74 +1,101 @@
 package fr.blablacar.domain;
 
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Ride {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private GregorianCalendar startDate;
-	private List<Location> locations;
-	private List<GregorianCalendar> arrivalDates;
-	private short totalPlaces;
-	private short leftPlaces;
-	private List<String> caracteristics;
 	
 	
-	Ride(GregorianCalendar startDate, List<Location> locations,
-			List<GregorianCalendar> arrivalDates, short totalPlaces, short leftPlaces, List<String> caracteristics){
-		this.startDate = startDate;
-		this.locations = locations;
-		this.arrivalDates = arrivalDates;
-		this.totalPlaces = totalPlaces;
-		this.leftPlaces = leftPlaces;
-		this.caracteristics = caracteristics;
-	}
+	private Long idOfUserWhoProposed;
 	
-	
-	public GregorianCalendar getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(GregorianCalendar startDate) {
-		this.startDate = startDate;
-	}
-	public List<Location> getLocations() {
-		return locations;
-	}
-	public void setLocations(List<Location> locations) {
-		this.locations = locations;
-	}
-	public List<GregorianCalendar> getArrivalDates() {
-		return arrivalDates;
-	}
-	public void setArrivalDates(List<GregorianCalendar> arrivalDates) {
-		this.arrivalDates = arrivalDates;
-	}
-	public short getTotalPlaces() {
-		return totalPlaces;
-	}
-	public void setTotalPlaces(short totalPlaces) {
-		this.totalPlaces = totalPlaces;
-	}
-	public short getLeftPlaces() {
-		return leftPlaces;
-	}
-	public void setLeftPlaces(short leftPlaces) {
-		this.leftPlaces = leftPlaces;
-	}
-	public List<String> getCaracteristics() {
-		return caracteristics;
-	}
-	public void setCaracteristics(List<String> caracteristics) {
-		this.caracteristics = caracteristics;
-	}
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateOfCreating;
+
 	public long getId() {
 		return id;
 	}
+
+	public long getUserWhoProposed() {
+		return idOfUserWhoProposed;
+	}
+
+	public void setIdOfUserWhoProposed(long iduserWhoProposed) {
+		this.idOfUserWhoProposed = iduserWhoProposed;
+	}
+
+	public Date getDateOfCreating() {
+		return dateOfCreating;
+	}
+
+	public void setDateOfCreating(Date dateOfCreating) {
+		this.dateOfCreating = dateOfCreating;
+	}
 	
 	
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+//		
+////	@OneToMany
+//	private ArrayList<Trajet> partOfRide = new ArrayList<Trajet>();
+//
+//	
+//	
+//	
+//	public long getId() {
+//		return id;
+//	}
+//
+//	public void setId(long id) {
+//		this.id = id;
+//	}
+//
+//	public User getUserWhoProposed() {
+//		return userWhoProposed;
+//	}
+//
+//	public void setUserWhoProposed(User userWhoProposed) {
+//		this.userWhoProposed = userWhoProposed;
+//	}
+//
+//	public ArrayList<Trajet> getPartOfRide() {
+//		return partOfRide;
+//	}
+//
+//	public void setPartOfRide(ArrayList<Trajet> partOfRide) {
+//		this.partOfRide = partOfRide;
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
 
 }

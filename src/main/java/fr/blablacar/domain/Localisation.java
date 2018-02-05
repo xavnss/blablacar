@@ -1,5 +1,5 @@
-package fr.blablacar.domain;
-
-public class Localisation {
-
-}
+//package fr.blablacar.domain;
+//
+//public class Localisation {
+//
+//}
